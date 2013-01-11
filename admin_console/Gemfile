@@ -16,3 +16,13 @@ gem "jquery-rails"
 # To use debugger
 # gem 'debugger'
 
+gem 'bson_ext'
+gem 'mongoid'
+gem 'parseconfig'
+gem 'openshift-origin-controller', :path => File.expand_path(File.join(File.dirname(__FILE__),"../controller"))
+
+gem 'quiet_assets'
+gem 'thin'
+gem 'pry'
+gem 'pry-rails'
+gem 'awesome_print'

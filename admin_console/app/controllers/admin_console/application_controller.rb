@@ -1,4 +1,7 @@
 module AdminConsole
-  class ApplicationController < ActionController::Base
+  class ApplicationController < BaseController
+    def show
+      @application = Application.find_by(:uuid => params[:id])
+    end
   end
 end

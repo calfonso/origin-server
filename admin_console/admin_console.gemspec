@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2.8"
   # s.add_dependency "jquery-rails"
+  s.add_dependency 'formtastic',          '~> 1.2.4'
+  s.add_dependency 'haml',                '~> 3.1.7'
 end

@@ -1,0 +1,12 @@
+:ruby
+  attrs = %w(gear_size available_capacity max_capacity)
+
+%section
+  %h1.divide
+    = @node.server_identity
+    %small
+      %span.pull-right= @node.active_string
+
+%section
+  %h2.divide Gears
+  = render :partial => 'admin_console/gear/tile', :collection => @gears, :as => :gear

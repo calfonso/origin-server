@@ -1,0 +1,13 @@
+:ruby
+  attrs = %w(gear_size available_capacity max_capacity server_identities active_server_identities_size)
+
+%div.span6.tile-dark
+  .tile.tile-click
+    %h3.divide
+      = link_to district.name, district_path(district.name)
+      %small
+        %span.pull-right= district.uuid
+    - attrs.each do |attr|
+      %div
+        %span= attr.to_s.upcase + ": "
+        %span= district.send(attr)
