@@ -24,9 +24,11 @@ for the most recent version.
 [here].
 
 # Questions
-* Is it possible for a node to belong to more than one district?
 * Is there a limit to the number of apps per node?
 * Figure out what OpenShift::ApplicationContainerProxy is all about
   * Can we use it instead of `Node`
+
+# Problems
+* Cannot add a second node to a district
 
 [here]: https://engineering.redhat.com/trac/Libra/wiki/Districts

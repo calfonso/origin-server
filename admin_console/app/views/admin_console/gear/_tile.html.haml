@@ -1,4 +1,10 @@
+:ruby
+  attrs = %w(name)
 .span4.tile-dark
   .tile.tile-click
     %h3.divide
       = link_to gear.uuid, gear_path(gear.uuid)
+  - attrs.each do |attr|
+    %div
+      %span= attr.to_s.upcase + ": "
+      %span= gear.send(attr)

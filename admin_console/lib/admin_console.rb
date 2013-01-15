@@ -10,4 +10,4 @@ require 'openshift/application_container_proxy'
 module AdminConsole
 end
 
-Mongoid.load!(File.join(File.dirname(__FILE__),'../../broker/config/mongoid.yml'))
+Mongoid.load!(File.join(File.dirname(__FILE__),'../config/mongoid.yml'))

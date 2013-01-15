@@ -1,6 +1,5 @@
 module AdminConsole
   class Node
-
     attr_reader :server_identity
 
     def initialize(args)
@@ -22,7 +21,7 @@ module AdminConsole
     end
 
     def gears
-      Gear.find_by_node(server_identity)
+      AdminConsole::Gear.find_by_node(server_identity)
     end
 
     class << self
