@@ -1,41 +1,13 @@
-production:
+default: &default
   sessions:
     default:
-      <% 
-      config = { :host_port => 'localhost:27017', :user => 'openshift', :password => 'mooo', :db => 'openshift_broker' } 
-      %>
-      database: <%= config[:db] %>
+      database: openshift_broker
       hosts:
-        <% config[:host_port].split(',').each do |server| %>
-        - <%= server %>
-        <% end %>
-      username: <%= config[:user] %>
-      password: <%= config[:password] %>
+        -  localhost:27017
+      username: openshift
+      password: mooo
   options:
     raise_not_found_error: true
-development:
-  sessions:
-    default:
-      <% 
-      config = { :host_port => 'localhost:27017', :user => 'openshift', :password => 'mooo', :db => 'openshift_broker_dev' } 
-      %>
-      database: <%= config[:db] %>
-      hosts:
-        <% config[:host_port].split(',').each do |server| %>
-        - <%= server %>
-        <% end %>
-      username: <%= config[:user] %>
-      password: <%= config[:password] %>
-test:
-  sessions:
-    default:
-      <% 
-      config = { :host_port => 'localhost:27017', :user => 'openshift', :password => 'mooo', :db => 'openshift_broker_test' } 
-      %>
-      database: <%= config[:db] %>
-      hosts:
-        <% config[:host_port].split(',').each do |server| %>
-        - <%= server %>
-        <% end %>
-      username: <%= config[:user] %>
-      password: <%= config[:password] %>
+production: *default
+development: *default
+test: *default
