@@ -8,7 +8,7 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
-Bundler.require
+Bundler.require(*Rails.groups(:default, :assets => %w(development test))) if defined?(Bundler)
 require "admin_console"
 
 module Dummy
