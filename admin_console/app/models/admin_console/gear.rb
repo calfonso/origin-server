@@ -1,11 +1,19 @@
 module AdminConsole
   class Gear < ::Gear
-    def applications
-      AdminConsole::Application.where('group_instances.gears.uuid' => '50f5b5eb1397e0ca21000001')
-    end
     class << self
-      def find_by_node(node)
-        AdminConsole::Application.find_by_node(node).map(&:group_instances).flatten.map(&:gears).flatten
+      def find_in_node(node)
+        apps = AdminConsole::Application.where('group_instances.gears.server_identity' => node.server_identity).to_a
+        group_instances = apps.map(&:group_instances).flatten
+        gears           = group_instances.map(&:gears).flatten.select{|x| x.server_identity == node.server_identity }
+        gears
+      end
+
+      def where(*args)
+        ::Gear.where(*args)
+      end
+
+      def find_by(*args)
+        ::Gear.find_by(*args)
       end
     end
   end

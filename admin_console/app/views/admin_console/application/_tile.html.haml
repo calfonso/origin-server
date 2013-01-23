@@ -1,3 +1,5 @@
 %div.span6.tile-dark
   .tile.tile-click
-    = link_to application.id, application_path(application.id)
+    = link_to application.name, application_path(application.uuid)
+    %small
+      %span.pull-right= application.id

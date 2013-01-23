@@ -1,11 +1,9 @@
 :ruby
-  attrs = %w(gear_size available_capacity max_capacity)
+  attrs = %w(uuid gear_size available_capacity max_capacity)
 
 %section
   %h1.divide
     = @district.name
-    %small
-      %span.pull-right= @district.uuid
   - attrs.each do |attr|
     %div
       %span= attr.to_s.upcase + ": "

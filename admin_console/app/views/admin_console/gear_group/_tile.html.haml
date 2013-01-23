@@ -1,0 +1,13 @@
+:ruby
+  attrs = %w(gear_size addtl_fs_gb)
+
+.span6.tile-dark
+  .tile.tile-click
+    - attrs.each do |attr|
+      %div
+        %span= attr.to_s.upcase + ": "
+        %span= gear_group.send(attr)
+
+    %h2.divide Gears
+    .row-fluid
+      = render :partial => 'admin_console/gear/tile', :collection => gear_group.gears, :as => :gear

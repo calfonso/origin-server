@@ -1,0 +1,14 @@
+:ruby
+  applications = domain.applications
+
+%section
+  %h2.divide
+    = domain.namespace
+
+  %h2.divide Applications
+  .row-fluid
+    - if applications.empty?
+      None
+    - else
+      = render :partial => 'admin_console/application/tile', :collection => applications, :as => :application
+

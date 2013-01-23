@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+    %title AdminConsole
+    = stylesheet_link_tag    "common", :media => "all"
+    = stylesheet_link_tag    "origin", :media => "all"
+    = csrf_meta_tags
+  %body{ :class => "console #{controller.controller_name} #{controller.action_name}" }
+    .section-console#content{:class => content_for?(:dark_layout) ? '' : 'section-console-light'}
+      .container
+        .row-console
+          .row.row-flush-right
+            .grid-wrapper.banner-ribbon
+              .span12.span-flush-right
+                - if content_for? :breadcrumbs
+                  %nav
+                    = yield :breadcrumbs
+                - else
+                  &nbsp;
+            .column-content.grid-wrapper
+              .span12
+                = yield

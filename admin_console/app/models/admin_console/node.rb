@@ -30,7 +30,7 @@ module AdminConsole
           {
             'server_identities.name' => server_identity
           }
-        ).first
+        ).flatten.select{|x| x.server_identity == server_identity }.first
       end
 
       def find_in_district(district)
@@ -52,7 +52,7 @@ module AdminConsole
 
       private
       def find(args)
-        districts_to_nodes(District.where(args)) || []
+        districts_to_nodes(District.where(args).to_a) || []
       end
 
       def districts_to_nodes(districts)

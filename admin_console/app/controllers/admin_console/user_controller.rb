@@ -1,7 +1,8 @@
 module AdminConsole
-  class User < BaseController
+  class UserController < BaseController
     def show
-      @user = CloudUser.find_by(:login => params[:id])
+      @user   = ::CloudUser.find_by(:id => params[:id])
+      @domains = @user.domains
     end
   end
 end

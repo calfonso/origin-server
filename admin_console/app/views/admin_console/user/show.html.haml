@@ -1,0 +1,14 @@
+%section
+  %h1.divide
+    = @user.login
+    %small
+      %span.pull-right= @user.id
+
+%section
+  %h2.divide
+    Domains
+  .row-fluid
+    - if @domains.empty?
+      None
+    - else
+      = render :partial => 'admin_console/domain/tile', :collection => @domains, :as => :domain

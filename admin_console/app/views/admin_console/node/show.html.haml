@@ -9,4 +9,5 @@
 
 %section
   %h2.divide Gears
-  = render :partial => 'admin_console/gear/tile', :collection => @gears, :as => :gear
+  .row
+    = render :partial => 'admin_console/gear/tile', :collection => @gears, :as => :gear

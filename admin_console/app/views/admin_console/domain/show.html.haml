@@ -1,0 +1,19 @@
+:ruby
+  applications = @domain.applications
+
+%section
+  %h1.divide
+    = @domain.namespace
+
+%section
+  %h2.divide Owner
+  = link_to @domain.owner.login, user_path(@domain.owner.id)
+
+%section
+  %h2.divide Applications
+  .row-fluid
+    - if applications.empty?
+      None
+    - else
+      = render :partial => 'admin_console/application/tile', :collection => applications, :as => :application
+
