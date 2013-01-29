@@ -19,14 +19,7 @@ gem "jquery-rails"
 gem 'bson_ext'
 gem 'mongoid'
 gem 'parseconfig'
-gem 'openshift-origin-controller', :path => File.expand_path(File.join(File.dirname(__FILE__),"../controller"))
-
-gem 'quiet_assets'
-gem 'thin'
-gem 'pry'
-gem 'pry-rails'
-gem 'awesome_print'
-
+gem 'openshift-origin-controller'
 group :assets do
   gem 'compass-rails', '~> 1.0.3'
   gem 'sass-rails',    '~> 3.2.5'
