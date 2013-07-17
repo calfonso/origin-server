@@ -111,7 +111,7 @@ class RestApplication < OpenShift::Model
 
     app.component_instances.each do |component_instance|
       cart = CartridgeCache::find_cartridge(component_instance.cartridge_name, app)
-
+      raise OpenShift::UserException.new("Unable to find cartridge for application '#{app.name}'. This may be due to no Node hosts available.", 109) if cart.nil?
       # add the builder properties if this is a builder component
       if cart.categories.include?("ci_builder")
         self.building_with = cart.name

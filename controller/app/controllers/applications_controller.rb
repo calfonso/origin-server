@@ -16,8 +16,12 @@ class ApplicationsController < BaseController
   def index
     include_cartridges = (params[:include] == "cartridges")
     apps = @domain.applications
-    rest_apps = apps.map { |application| get_rest_application(application, include_cartridges, apps) }
-    render_success(:ok, "applications", rest_apps, "Found #{rest_apps.length} applications for domain '#{@domain.namespace}'")
+    begin
+      rest_apps = apps.map { |application| get_rest_application(application, include_cartridges, apps) }
+      render_success(:ok, "applications", rest_apps, "Found #{rest_apps.length} applications for domain '#{@domain.namespace}'")
+    rescue OpenShift::OOException => e
+      render_error(:service_unavailable, "Unable to retreive applications. This may be due to no Node hosts available.", e.code)
+    end
   end
 
   ##
